@@ -87,3 +87,24 @@ const App = html`
 
 render(App(), null, '#app')
 ```
+
+## With other templates
+
+```js
+import { html, render } from 'html-experiment'
+import { observable } from 'mobx'
+
+const Header = html`
+  <header>
+    <h1>Hello</h1>
+  </header>
+`
+
+const App = html`
+  <div on-click="${(props, state) => (event) => console.log('clicked')}">
+    ${Header}
+  </div>
+`
+
+render(App(), null, '#app')
+```
